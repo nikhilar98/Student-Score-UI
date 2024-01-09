@@ -1,9 +1,9 @@
 Instructions to run the app locally.
 
-git clone https://github.com/nikhilar98/Student-Score-UI
-cd student-score-ui
-npm install
-npm start
+git clone https://github.com/nikhilar98/Student-Score-UI<br/>
+cd student-score-ui<br/>
+npm install<br/>
+npm start<br/>
 
 Live Link : https://task-manager-self-sigma.vercel.app/
 
