@@ -15,7 +15,7 @@ function App() {
 
   useEffect(()=>{
     if(localStorage.getItem('students')){
-      dispatch({type:"SET_STUDENTS",payload:JSON.parse(localStorage.getItem('students'))})
+      dispatch({type:"SET_RECORDS",payload:JSON.parse(localStorage.getItem('students'))})
     }
   },[])
 

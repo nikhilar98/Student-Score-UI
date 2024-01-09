@@ -1,7 +1,7 @@
 export default function reducer(state,action){
     switch(action.type){
 
-        case "SET_STUDENTS":{
+        case "SET_RECORDS":{
             return {...state,students:action.payload}
         }
         case "INSERT_RECORD":{
