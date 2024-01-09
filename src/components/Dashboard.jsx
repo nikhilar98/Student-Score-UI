@@ -33,7 +33,7 @@ export default function Dashboard(props){
                 data={[["Passed", passedCount], ["Failed", failedCount]]}  
                 width="30%" 
                 donut={true} 
-                colors={["rgb(37, 211, 102)", "rgb(250, 73, 73)"]}
+                colors={["rgb(37, 211, 102)", "rgb(255, 0, 0)"]}
                 download={true} />
 
                 <LineChart data={marksDistribution} 

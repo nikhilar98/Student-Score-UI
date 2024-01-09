@@ -95,3 +95,7 @@ body{
   font-weight: bold;
   border:none;
 }
+
+#searchBox{
+  margin: 1rem 0;
+}

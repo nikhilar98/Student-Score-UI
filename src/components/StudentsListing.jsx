@@ -1,15 +1,21 @@
-import { useContext, useMemo, useState } from "react"
+import { useContext, useMemo, useState, memo } from "react"
 import { appContext } from "../App"
 import { Card, CardContent, Typography,Button,Stack,Pagination,Box } from "@mui/material"
 
-export default function StudentsListing(props){ 
+function StudentsListing(props){ 
 
     const {data,dispatch} = useContext(appContext)
     const [pageNo,setPageNo] = useState(1)
+    const [searchText,setSearchText] = useState("")
+
+    const filteredRecords = useMemo(()=>{
+        return data.students.filter(ele=>ele.name.includes(searchText))
+    },[searchText,data.students])
 
     const pageCounts = useMemo(()=>{
-        return Math.ceil(data.students.length/3)
-    },[data.students])
+        const records = Boolean(searchText) ? filteredRecords : data.students 
+        return Math.ceil(records.length/3)
+    },[searchText,data.students])
 
     const handlePageChange = (event, value) => {
         setPageNo(value);
@@ -25,8 +31,12 @@ export default function StudentsListing(props){
     return (
         <div className="studentsListing">
             <h1>Records</h1>
-            {
-                data.students.slice(pageNo*3-3,pageNo*3).map(ele=>{ 
+            
+            <input type="text" id='searchBox' value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} placeholder="Search by name"/>
+            
+            
+            {   
+               (searchText?filteredRecords:data.students).slice(pageNo*3-3,pageNo*3).map(ele=>{ 
                     return <Card key={ele.id} className="card">
                                 <Box className='content'>
                                     <CardContent>
@@ -44,10 +54,15 @@ export default function StudentsListing(props){
                             </Card>
                 })
             }
-             <Stack spacing={2}>
-                <Pagination count={pageCounts} value={pageNo} onChange={handlePageChange}/>
-             </Stack>
+            { filteredRecords.length ?
+                <Stack spacing={2}>
+                    <Pagination count={pageCounts} value={pageNo} onChange={handlePageChange}/>
+                </Stack> 
+                : 
+                <p>No records found</p>
+             }
         </div>
     )
 }
 
+export default memo(StudentsListing)
