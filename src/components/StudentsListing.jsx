@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState, memo } from "react"
+import { useContext, useMemo, useState, memo, useEffect } from "react"
 import { appContext } from "../App"
 import { Card, CardContent, Typography,Button,Stack,Pagination,Box } from "@mui/material"
 
@@ -7,6 +7,10 @@ function StudentsListing(props){
     const {data,dispatch} = useContext(appContext)
     const [pageNo,setPageNo] = useState(1)
     const [searchText,setSearchText] = useState("")
+
+    useEffect(()=>{
+        setPageNo(1)
+    },[searchText])
 
     const filteredRecords = useMemo(()=>{
         return data.students.filter(ele=>ele.name.includes(searchText))
