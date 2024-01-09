@@ -7,7 +7,7 @@ cd student-score-ui<br/>
 npm install<br/>
 npm start<br/>
 
-Live Link :
+Live Link : https://student-score-ui.vercel.app/
 
 Assumptions : User can add/edit/delete records that contain information of a student like his/her name,address,score. The pass/fail status is calculated from the score entered and displayed on UI. A dashboard displays the statistics of all the students scores.
 
