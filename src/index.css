@@ -2,6 +2,7 @@ body{
   margin:0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  background-color: whitesmoke;
 }
 
 .navBar{
@@ -25,7 +26,13 @@ body{
  right: 3rem;
  cursor: pointer;
  font-size: 3rem;
- color:white
+ color:white;
+ box-shadow: 5px 5px 15px black ;
+}
+.addRecordButton:hover{
+  height: 5.2rem;
+  width: 5.2rem;
+  background-color: rgb(6, 118, 6);
 }
 
 .navLink{
@@ -36,4 +43,55 @@ body{
 .chartsContainer{
   display: flex;
   padding: 5rem;
+}
+
+.text-input{
+  margin: 20px;
+}
+
+.studentsListing{
+  padding: 1rem 2rem;
+}
+
+.addForm{
+  display:grid;
+  grid-template-columns:20rem;
+  row-gap:0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  background-color: white;
+  border: 2px solid #000;
+  box-shadow: 10rem;
+  padding: 2rem;
+  border-radius:1rem;
+  border:none;
+}
+
+.card{
+  width: 40%;
+  margin-bottom:1rem;
+  box-shadow: 5px 5px 5px;
+}
+
+.content{
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  background-color: rgb(174, 237, 232);
+}
+.card button{
+  margin: 1rem;
+}
+
+.status{
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  width: 4rem;
+  padding: 0.6rem;
+  color: white;
+  font-weight: bold;
+  border:none;
 }

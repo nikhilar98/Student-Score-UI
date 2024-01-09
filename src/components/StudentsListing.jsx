@@ -23,24 +23,24 @@ export default function StudentsListing(props){
     }
 
     return (
-        <div>
+        <div className="studentsListing">
             <h1>Records</h1>
             {
                 data.students.slice(pageNo*3-3,pageNo*3).map(ele=>{ 
-                    return <Card key={ele.id} sx={{ width: "50%",marginBottom:"1rem" }}>
-                            <Box style={{display:'flex',justifyContent:"space-between",alignItems:'start'}}>
-                                <CardContent>
-                                    <Typography>Name : {ele.name}</Typography>
-                                    <Typography>Address : {ele.address}</Typography>
-                                    <Typography>City :{ele.city}</Typography>
-                                    <Typography>Country :{ele.country}</Typography>
-                                    <Typography>Pincode :{ele.pincode}</Typography>
-                                    <Typography>Score :{ele.score}</Typography>
-                                </CardContent>
-                                <Button variant='contained' sx={{backgroundColor:ele.score>0.3*1600 ?'green':'red'}}>{ele.score>0.3*1600 ? 'Passed' : 'Failed'}</Button>
-                            </Box>
-                            <Button variant='contained'>Edit</Button>
-                            <Button variant='contained' onClick={()=>{handleDelete(ele.id)}}>Delete</Button>
+                    return <Card key={ele.id} className="card">
+                                <Box className='content'>
+                                    <CardContent>
+                                        <Typography variant="body2">Name : {ele.name}</Typography>
+                                        <Typography variant="body2">Address : {ele.address}</Typography>
+                                        <Typography variant="body2">City :{ele.city}</Typography>
+                                        <Typography variant="body2">Country :{ele.country}</Typography>
+                                        <Typography variant="body2">Pincode :{ele.pincode}</Typography>
+                                        <Typography variant="body2">Score :{ele.score}</Typography>
+                                    </CardContent>
+                                    <button className="status" style={{backgroundColor:ele.score>0.3*1600 ?'green':'red'}}>{ele.score>0.3*1600 ? 'Passed' : 'Failed'}</button>
+                                </Box>
+                                <Button variant='contained'>Edit</Button>
+                                <Button variant='contained' onClick={()=>{handleDelete(ele.id)}} >Delete</Button>
                             </Card>
                 })
             }

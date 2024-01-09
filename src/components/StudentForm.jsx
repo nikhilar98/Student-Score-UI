@@ -3,18 +3,6 @@ import { Button,Modal,TextField,Box } from '@mui/material';
 import { useContext,useState,memo } from 'react';
 import { appContext } from '../App';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
 
 function StudentForm(props){ 
 
@@ -98,21 +86,19 @@ function StudentForm(props){
             <Modal
                 open={data.modalOpen}
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
             >
-                <Box sx={style} component="form" onSubmit={handleSubmit}>
-                    <TextField id="name" label="Name" variant="outlined" value={name} onChange={(e)=>{setName(e.target.value)}} helperText={formErrors.name && formErrors.name}  error={Boolean(formErrors.name)}/>
+                <Box className='addForm' component="form" onSubmit={handleSubmit}>
+                    <TextField className="text-input" id="name" label="Name" variant="outlined" value={name} onChange={(e)=>{setName(e.target.value)}} helperText={formErrors.name && formErrors.name}  error={Boolean(formErrors.name)}/>
                     
-                    <TextField id="Address" label="Address" variant="outlined" value={address} onChange={(e)=>{setAddress(e.target.value)}} helperText={formErrors.address && formErrors.address} error={Boolean(formErrors.address)}/>
+                    <TextField className="text-input" id="Address" label="Address" variant="outlined" value={address} onChange={(e)=>{setAddress(e.target.value)}} helperText={formErrors.address && formErrors.address} error={Boolean(formErrors.address)}/>
                     
-                    <TextField id="City" label="City" variant="outlined" value={city} onChange={(e)=>{setCity(e.target.value)}} helperText={formErrors.city && formErrors.city} error={Boolean(formErrors.city)}/>
+                    <TextField className="text-input" id="City" label="City" variant="outlined" value={city} onChange={(e)=>{setCity(e.target.value)}} helperText={formErrors.city && formErrors.city} error={Boolean(formErrors.city)}/>
                     
-                    <TextField id="Country" label="Country" variant="outlined" value={country} onChange={(e)=>{setCountry(e.target.value)}} helperText={formErrors.country && formErrors.country} error={Boolean(formErrors.country)}/>
+                    <TextField className="text-input" id="Country" label="Country" variant="outlined" value={country} onChange={(e)=>{setCountry(e.target.value)}} helperText={formErrors.country && formErrors.country} error={Boolean(formErrors.country)}/>
                     
-                    <TextField id="Pincode" label="Pincode" variant="outlined" value={pincode} onChange={(e)=>{setPincode(e.target.value)}} helperText={formErrors.pincode && formErrors.pincode} error={Boolean(formErrors.pincode)}/>
+                    <TextField className="text-input" id="Pincode" label="Pincode" variant="outlined" value={pincode} onChange={(e)=>{setPincode(e.target.value)}} helperText={formErrors.pincode && formErrors.pincode} error={Boolean(formErrors.pincode)}/>
                     
-                    <TextField id="Score" label="Score" variant="outlined" type='number' value={score} onChange={(e)=>{setScore(e.target.value)}} helperText={formErrors.score && formErrors.score} error={Boolean(formErrors.score)}/><br/>
+                    <TextField className="text-input" id="Score" label="Score" variant="outlined" type='number' value={score} onChange={(e)=>{setScore(e.target.value)}} helperText={formErrors.score && formErrors.score} error={Boolean(formErrors.score)}/><br/>
 
                     <Button type='submit' variant="contained">Add record</Button>
                 </Box>
