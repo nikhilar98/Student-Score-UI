@@ -70,17 +70,14 @@ body{
   border:none;
 }
 
-.card{
-  width: 40%;
-  margin-bottom:1rem;
-  box-shadow: 5px 5px 5px;
-}
-
 .content{
   display:flex;
   justify-content:space-between;
   align-items:start;
   background-color: rgb(174, 237, 232);
+}
+.card{ 
+  width: 80%;
 }
 .card button{
   margin: 1rem;
@@ -101,5 +98,19 @@ body{
 }
 
 .grid{ 
-  
+  display: grid;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 2rem;
+}
+
+.Title{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination{
+ display:flex;
+ justify-content:center;
 }

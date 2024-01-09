@@ -64,11 +64,13 @@ function StudentsListing(props){
                 })
             }
             </div>
-
+            
             { filteredRecords.length ?
-                <Stack spacing={2}>
-                    <Pagination count={pageCounts} value={pageNo} onChange={handlePageChange}/>
-                </Stack> 
+                <Box className='pagination'>
+                    <Stack spacing={2}>
+                        <Pagination count={pageCounts} value={pageNo} onChange={handlePageChange}/>
+                    </Stack>
+                </Box> 
                 : 
                 <p>No records found</p>
              }

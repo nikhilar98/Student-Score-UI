@@ -27,8 +27,8 @@ export default function Dashboard(props){
 
     return (
         <div>
+            <h1 className='Title'>Dashboard</h1>
             <div className="chartsContainer">
-
                 <PieChart 
                 data={[["Passed", passedCount], ["Failed", failedCount]]}  
                 width="30%" 
