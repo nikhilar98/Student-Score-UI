@@ -13,11 +13,25 @@ export default function reducer(state,action){
             })
             return {...state,students:newStudents}
         }
+        case "UPDATE_RECORD" : { 
+            const newStudents = state.students.map(ele=>{
+                if(ele.id==action.payload.id){
+                    return {...ele,...action.payload}
+                }
+                else{ 
+                    return {...ele}
+                }
+            })
+            return {...state,students:newStudents}
+        }
         case "OPEN_MODAL" : { 
             return {...state,modalOpen:true}
         }
         case "CLOSE_MODAL" : { 
-            return {...state,modalOpen:false}
+            return {...state,modalOpen:false,editItemId:0}
+        }
+        case "IS_EDIT_MODE":{
+            return {...state,editItemId:action.payload}
         }
         default : return {...state}
     }

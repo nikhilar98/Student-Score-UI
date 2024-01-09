@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button,Modal,TextField,Box } from '@mui/material';
-import { useContext,useState,memo } from 'react';
+import { useContext,useState,memo,useEffect } from 'react';
 import { appContext } from '../App';
 
 
@@ -16,6 +16,18 @@ function StudentForm(props){
   const [formErrors,setFormErrors] = useState({})
 
   const errors = {} 
+
+  useEffect(()=>{
+    if(Boolean(data.editItemId)){
+        setName(data.students.find(ele=>ele.id===data.editItemId).name)
+        setAddress(data.students.find(ele=>ele.id===data.editItemId).address)
+        setCity(data.students.find(ele=>ele.id===data.editItemId).city)
+        setCountry(data.students.find(ele=>ele.id===data.editItemId).country)
+        setPincode(data.students.find(ele=>ele.id===data.editItemId).pincode)
+        setScore(data.students.find(ele=>ele.id===data.editItemId).score)
+    }
+
+  },[data.editItemId])
 
   function runValidations() { 
     if(name===''){
@@ -55,6 +67,32 @@ function StudentForm(props){
     setFormErrors({})
   }
 
+  function handleUpdate(e){
+       e.preventDefault()
+
+       runValidations()
+
+       if(Object.keys(errors).length===0){
+           const formData= { 
+               name,
+               address,
+               city,
+               country,
+               pincode,
+               score,
+               id:data.editItemId
+           }
+   
+           dispatch({type:"UPDATE_RECORD",payload:formData})
+           handleClose()
+           console.log(formData)
+       }
+       else { 
+           setFormErrors(errors)
+       }
+
+  }
+
   function handleSubmit(e){ 
         e.preventDefault()
 
@@ -73,7 +111,6 @@ function StudentForm(props){
     
             dispatch({type:"INSERT_RECORD",payload:formData})
             handleClose()
-            console.log(formData)
         }
         else { 
             setFormErrors(errors)
@@ -87,7 +124,7 @@ function StudentForm(props){
                 open={data.modalOpen}
                 onClose={handleClose}
             >
-                <Box className='addForm' component="form" onSubmit={handleSubmit}>
+                <Box className='addForm' component="form" onSubmit={Boolean(data.editItemId) ? handleUpdate : handleSubmit}>
                     <TextField className="text-input" id="name" label="Name" variant="outlined" value={name} onChange={(e)=>{setName(e.target.value)}} helperText={formErrors.name && formErrors.name}  error={Boolean(formErrors.name)}/>
                     
                     <TextField className="text-input" id="Address" label="Address" variant="outlined" value={address} onChange={(e)=>{setAddress(e.target.value)}} helperText={formErrors.address && formErrors.address} error={Boolean(formErrors.address)}/>
@@ -100,7 +137,7 @@ function StudentForm(props){
                     
                     <TextField className="text-input" id="Score" label="Score" variant="outlined" type='number' value={score} onChange={(e)=>{setScore(e.target.value)}} helperText={formErrors.score && formErrors.score} error={Boolean(formErrors.score)}/><br/>
 
-                    <Button type='submit' variant="contained">Add record</Button>
+                    <Button type='submit' variant="contained">{Boolean(data.editItemId) ? 'Update record':'Add record'}</Button>
                 </Box>
             </Modal>
         </div>

@@ -9,7 +9,7 @@ export const appContext = createContext()
 
 function App() {
 
-  const [data,dispatch]= useReducer(reducer,{students:[],modalOpen:false})
+  const [data,dispatch]= useReducer(reducer,{students:[],modalOpen:false,editItemId:0})
 
   console.log(data)
 
