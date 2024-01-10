@@ -87,8 +87,18 @@ body{
   align-items:start;
   background-color: rgb(174, 237, 232);
 }
+.content p {
+  margin: 0;
+  font-weight: 600;
+}
+.content span{
+  font-weight:400;
+  font-style: italic;
+}
+
 .card{ 
   width: 80%;
+  max-width: 450px;
 }
 .card button{
   margin: 1rem;
@@ -143,5 +153,15 @@ body{
   }
   .linechartContainer{
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .grid{ 
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
   }
 }

@@ -49,12 +49,12 @@ function StudentsListing(props){
                     return <Card key={ele.id} className="card">
                                 <Box className='content'>
                                     <CardContent>
-                                        <Typography variant="body2">Name : {ele.name}</Typography>
-                                        <Typography variant="body2">Address : {ele.address}</Typography>
-                                        <Typography variant="body2">City : {ele.city}</Typography>
-                                        <Typography variant="body2">Country : {ele.country}</Typography>
-                                        <Typography variant="body2">Pincode : {ele.pincode}</Typography>
-                                        <Typography variant="body2">Score : {ele.score}</Typography>
+                                        <p>Name : <span>{ele.name}</span></p>
+                                        <p>Address : <span>{ele.address}</span></p>
+                                        <p>City : <span>{ele.city}</span></p>
+                                        <p>Country : <span>{ele.country}</span></p>
+                                        <p>Pincode : <span>{ele.pincode}</span></p>
+                                        <p>Score : <span>{ele.score}</span></p>
                                     </CardContent>
                                     <button className="status" style={{backgroundColor:ele.score>0.3*1600 ?'green':'red'}}>{ele.score>0.3*1600 ? 'Passed' : 'Failed'}</button>
                                 </Box>
