@@ -119,7 +119,7 @@ function StudentForm(props){
   }
 
     return (
-        <div>
+        <Box>
             <Modal
                 open={data.modalOpen}
                 onClose={handleClose}
@@ -140,7 +140,7 @@ function StudentForm(props){
                     <Button type='submit' variant="contained">{Boolean(data.editItemId) ? 'Update record':'Add record'}</Button>
                 </Box>
             </Modal>
-        </div>
+        </Box>
     )
 }
 

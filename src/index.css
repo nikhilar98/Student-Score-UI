@@ -12,7 +12,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: start;
-  gap:2rem
+  gap:2rem;
 }
 
 .addRecordButton{
@@ -28,6 +28,7 @@ body{
  font-size: 3rem;
  color:white;
  box-shadow: 5px 5px 15px black ;
+ z-index: 1000;
 }
 .addRecordButton:hover{
   height: 5.2rem;
@@ -42,7 +43,17 @@ body{
 
 .chartsContainer{
   display: flex;
-  padding: 5rem;
+  justify-content: space-around;
+  padding: 2rem;
+  gap:1rem;
+  contain:content;
+}
+
+.piechartContainer{
+  width: 40%;
+}
+.linechartContainer{
+  width: 60%;
 }
 
 .text-input{
@@ -55,19 +66,19 @@ body{
 
 .addForm{
   display:grid;
-  grid-template-columns:20rem;
+  grid-template-columns:1fr;
   row-gap:0.5rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400;
   background-color: white;
   border: 2px solid #000;
-  box-shadow: 10rem;
   padding: 2rem;
   border-radius:1rem;
   border:none;
+  width: 30%;
+  min-width: 200px;
 }
 
 .content{
@@ -113,4 +124,24 @@ body{
 .pagination{
  display:flex;
  justify-content:center;
+}
+
+@media screen and (max-width: 646px) {
+  .chartsContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+  .addRecordButton{
+    height: 3rem;
+    width: 3rem;
+    font-size: 2rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .piechartContainer{
+    width: 100%;
+  }
+  .linechartContainer{
+    width: 100%;
+  }
 }

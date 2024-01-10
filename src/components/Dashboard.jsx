@@ -29,19 +29,20 @@ export default function Dashboard(props){
         <div>
             <h1 className='Title'>Dashboard</h1>
             <div className="chartsContainer">
-                <PieChart 
-                data={[["Passed", passedCount], ["Failed", failedCount]]}  
-                width="30%" 
-                donut={true} 
-                colors={["rgb(37, 211, 102)", "rgb(255, 0, 0)"]}
-                download={true} />
-
-                <LineChart data={marksDistribution} 
-                xtitle="marks range" 
-                ytitle="counts" 
-                width="50%"
-                download={true} />
-
+                    <div className='piechartContainer'>
+                    <PieChart 
+                    data={[["Passed", passedCount], ["Failed", failedCount]]}  
+                    donut={true} 
+                    colors={["rgb(37, 211, 102)", "rgb(255, 0, 0)"]}
+                    download={true} />
+                    </div>
+                    <div className='linechartContainer'>
+                    <LineChart data={marksDistribution} 
+                    xtitle="marks range" 
+                    ytitle="counts" 
+                    download={true} />
+                    </div>
+                
             </div>
         </div>
     )
