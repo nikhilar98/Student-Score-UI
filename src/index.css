@@ -86,6 +86,7 @@ body{
   justify-content:space-between;
   align-items:start;
   background-color: rgb(174, 237, 232);
+  min-height: 220px;
 }
 .content p {
   margin: 0;
@@ -153,6 +154,9 @@ body{
   }
   .linechartContainer{
     width: 100%;
+  }
+  .content p {
+    max-width: 100px;
   }
 }
 
